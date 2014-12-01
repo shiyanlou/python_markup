@@ -2,9 +2,6 @@
 # encoding: utf-8
 
 class Handler:
-    """
-    处理程序父类
-    """
     def callback(self, prefix, name, *args):
         method = getattr(self, prefix + name, None)
         if callable(method): return method(*args)
@@ -23,9 +20,6 @@ class Handler:
         return substitution
 
 class HTMLRenderer(Handler):
-    """
-    HTML处理程序,给文本块加相应的HTML标记
-    """
     def start_document(self):
         print '<html><head><title>ShiYanLou</title></head><body>'
 
